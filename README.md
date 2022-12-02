@@ -1,2 +1,2 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/IzarlyShark/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/IzarlyShark/frontend-project-44/actions)
+[![Actions Status](https://github.com/IzarlyShark/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/IzarlyShark/frontend-project-44/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/da45a578b2212e84641b/maintainability)](https://codeclimate.com/github/IzarlyShark/frontend-project-44/maintainability)
