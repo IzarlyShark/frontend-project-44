@@ -15,10 +15,9 @@ function evenGame() {
   let counter = 0;
   for (let i = 0; i < 3; i += 1) {
     const x = Math.floor(Math.random() * (max - min + 1) + min);
-    console.log(`Question:${x}`);
     const isEven = (num) => num % 2 === 0;
     const correctAnswer = isEven(x) ? 'yes' : 'no';
-    const userAnswer = readlineSync.question();
+    const userAnswer = readlineSync.question(`Question:${x} \n`);
     if (correctAnswer === userAnswer) {
       console.log('Correct!');
       counter += 1;
