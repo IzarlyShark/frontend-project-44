@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
-import randomNum from '../index.js';
+import { randomNum, inCorrect } from '../index.js';
 
 function calc() {
   const name = greetings();
@@ -30,7 +30,7 @@ function calc() {
       console.log('Correct!');
       counter += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${result}'. Let's try again, ${name}!`);
+      inCorrect(userAnswer, result, name);
       break;
     }
   }

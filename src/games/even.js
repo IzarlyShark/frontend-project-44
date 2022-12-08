@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import randomNum from '../index.js';
+import { randomNum, inCorrect } from '../index.js';
 import greetings from '../cli.js';
 
 function evenGame() {
@@ -16,7 +16,7 @@ function evenGame() {
       console.log('Correct!');
       counter += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`);
+      inCorrect(userAnswer, correctAnswer, name);
       break;
     }
   }
