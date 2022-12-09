@@ -15,17 +15,22 @@ function loop(x, y, n) {
 function nod() {
   const name = greetings();
   console.log('Find the greatest common divisor of given numbers.');
+  let counter = 0;
   for (let i = 0; i < 3; i += 1) {
     const x = randomNum(1, 100);
     const y = randomNum(1, 100);
     let n = x > y ? y : x;
     const userAnswer = readlineSync.question(`Question: ${x} ${y} \nYour answer: `);
     n = loop(x, y, n);
-    if (userAnswer !== n + '') {
+    if (userAnswer !== n.toString()) {
       inCorrect(userAnswer, n, name);
       break;
     } else {
       console.log('Correct!');
+      counter += 1;
+    }
+    if (counter === 3) {
+      console.log(`Congratulations, ${name}!`);
     }
   }
 }
