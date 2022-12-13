@@ -3,6 +3,8 @@ import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
 import { randomNum, inCorrect } from '../index.js';
 
+console.log('brain-gcd \n');
+
 function loop(x, y, n) {
   for (let i = 0; i < n; n -= 1) {
     if (x % n === 0 && y % n === 0) {

@@ -3,6 +3,8 @@ import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
 import { randomNum, inCorrect } from '../index.js';
 
+console.log('brain-calc \n');
+
 function calc() {
   const name = greetings();
   console.log('What is the result of the expression?');
