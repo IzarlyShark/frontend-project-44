@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import readlineSync, { promptLoop } from 'readline-sync';
+import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
 import { randomNum, inCorrect } from '../index.js';
 
@@ -7,7 +7,6 @@ function loop(num) {
   let result = num === 1 ? 'no' : 'yes';
   for (let i = 2; i <= num - 1; i += 1) {
     result = num % i === 0 ? 'no' : 'yes';
-    console.log(result, i);
     if (result === 'no') break;
   }
   return result;
