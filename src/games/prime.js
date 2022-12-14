@@ -13,7 +13,7 @@ function loop(num) {
 }
 
 function getPrime() {
-  console.log('brain-prime');
+  console.log('brain-prime \n');
   const name = greetings();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let counter = 0;
