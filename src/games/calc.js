@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
-import { randomNum, inCorrect } from '../index.js';
+import { randomNum, getCondition } from '../index.js';
 
 console.log('brain-calc \n');
 
@@ -28,16 +28,11 @@ function calc() {
         break;
       default:
     }
-    if (userAnswer === result.toString()) {
-      console.log('Correct!');
-      counter += 1;
-    } else {
-      inCorrect(userAnswer, result, name);
+    counter += 1;
+    const bool = getCondition(result, userAnswer, name, counter);
+    if (bool === 'false') {
       break;
     }
-  }
-  if (counter === 3) {
-    console.log(`Congratulations, ${name}!`);
   }
 }
 
