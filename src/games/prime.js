@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
-import { randomNum, inCorrect } from '../index.js';
+import { randomNum, getCondition } from '../index.js';
 
 function loop(num) {
   let result = num === 1 ? 'no' : 'yes';
@@ -12,24 +12,21 @@ function loop(num) {
   return result;
 }
 
+const name = greetings();
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 function getPrime() {
   console.log('brain-prime \n');
-  const name = greetings();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  console.log(rule);
   let counter = 0;
   for (let i = 0; i < 3; i += 1) {
     const num = randomNum(1, 100);
-    const userAnswer = readlineSync.question(`Question: ${num} \nYour answer: `);
+    const quest = `Question: ${num} \nYour answer: `;
+    const userAnswer = readlineSync.question(quest);
     const result = loop(num);
-    if (userAnswer !== result) {
-      inCorrect(userAnswer, result, name);
+    counter += 1;
+    const bool = getCondition(result, userAnswer, name, counter);
+    if (bool === 'false') {
       break;
-    } else {
-      console.log('Correct!');
-      counter += 1;
-    }
-    if (counter === 3) {
-      console.log(`Congratulations, ${name}!`);
     }
   }
 }

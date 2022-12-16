@@ -5,16 +5,19 @@ import { randomNum, getCondition } from '../index.js';
 
 console.log('brain-calc \n');
 
+const name = greetings();
+const rule = 'What is the result of the expression?';
+
 function calc() {
-  const name = greetings();
-  console.log('What is the result of the expression?');
+  console.log(rule);
   let counter = 0;
   for (let i = 0; i < 3; i += 1) {
     const x = randomNum(1, 100);
     const y = randomNum(1, 100);
     const arrSym = ['+', '*', '-'];
     const symbol = arrSym[randomNum(0, 2)];
-    const userAnswer = readlineSync.question(`Question: ${x} ${symbol} ${y} \n`);
+    const quest = `Question: ${x} ${symbol} ${y} \n`;
+    const userAnswer = readlineSync.question(quest);
     let result = 0;
     switch (symbol) {
       case arrSym[0]:
@@ -29,7 +32,7 @@ function calc() {
       default:
     }
     counter += 1;
-    const bool = getCondition(result, userAnswer, name, counter);
+    const bool = getCondition(result, +userAnswer, name, counter);
     if (bool === 'false') {
       break;
     }

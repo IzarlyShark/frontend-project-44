@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
-import { randomNum, inCorrect } from '../index.js';
+import { randomNum, getCondition } from '../index.js';
 
 const progressionLenght = 10;
 
@@ -17,27 +17,26 @@ function progression() {
   return arrProgression;
 }
 
+const name = greetings();
+const rule = 'What number is missing in the progression?';
+
 function getprogression() {
   console.log('brain-progression \n');
-  const name = greetings();
-  console.log('What number is missing in the progression?');
+  console.log(rule);
   let counter = 0;
   for (let i = 0; i < 3; i += 1) {
     const myProgression = progression();
     const randomIndex = randomNum(0, progressionLenght - 1);
     const correctAnswer = myProgression[randomIndex];
     myProgression[randomIndex] = '..';
-    const userAnswer = readlineSync.question(`Question:${myProgression} \n`);
-    if (correctAnswer === +userAnswer) {
-      console.log('Correct!');
-      counter += 1;
-    } else {
-      inCorrect(userAnswer, correctAnswer, name);
+    const quest = `Question:${myProgression} \n`;
+    const userAnswer = readlineSync.question(quest);
+    counter += 1;
+    const bool = getCondition(correctAnswer, +userAnswer, name, counter);
+    if (bool === 'false') {
       break;
     }
   }
-  if (counter === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
 }
+
 export default getprogression;

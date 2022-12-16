@@ -5,14 +5,10 @@ function randomNum(min, max) {
   return x;
 }
 
-// function inCorrect(answer, trueAnswer, name) {
-  // console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'. Let's try again, ${name}!`);
-// }
-
 function getCondition(correctAnswer, userAnswer, name, counter) {
   let bool = 'true';
   console.log(correctAnswer, userAnswer);
-  if (correctAnswer === +userAnswer) {
+  if (correctAnswer === userAnswer) {
     console.log('Correct!');
   } else {
     bool = 'false';
