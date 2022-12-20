@@ -12,7 +12,7 @@ function evenGame() {
     const x = randomNum(1, 100);
     const isEven = (num) => num % 2 === 0;
     const correctAnswer = isEven(x) ? 'yes' : 'no';
-    const quest = `Question:${x} \n`;
+    const quest = `Question: ${x} \n`;
     const userAnswer = readlineSync.question(quest);
     counter += 1;
     const bool = getCondition(correctAnswer, userAnswer, name, counter);
