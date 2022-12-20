@@ -29,7 +29,7 @@ function getprogression() {
     const randomIndex = randomNum(0, progressionLenght - 1);
     const correctAnswer = myProgression[randomIndex];
     myProgression[randomIndex] = '..';
-    const quest = `Question:${myProgression} \n`;
+    const quest = `Question: ${myProgression} \n`;
     const userAnswer = readlineSync.question(quest);
     counter += 1;
     const bool = getCondition(correctAnswer, +userAnswer, name, counter);
