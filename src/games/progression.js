@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 import greetings from '../cli.js';
 import { randomNum, getCondition } from '../index.js';
 
-const progressionLenght = 10;
+const progressionLenght = 6;
 
 function progression() {
   let numberRange = randomNum(0, 100);
@@ -29,7 +29,7 @@ function getprogression() {
     const randomIndex = randomNum(0, progressionLenght - 1);
     const correctAnswer = myProgression[randomIndex];
     myProgression[randomIndex] = '..';
-    const quest = `Question: ${myProgression} \n`;
+    const quest = `Question: ${myProgression.join(' ')} \n`;
     const userAnswer = readlineSync.question(quest);
     counter += 1;
     const bool = getCondition(correctAnswer, +userAnswer, name, counter);
