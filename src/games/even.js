@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import { randomNum, getCondition } from '../index.js';
 import greetings from '../cli.js';

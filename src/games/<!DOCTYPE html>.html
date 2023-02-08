@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(make('Hexlet', { website: 'hexlet.io', state: 'published' })); 
+        function make(nameCompany, obj) {
+            const result = {...obj};
+            result['name'] = nameCompany;
+            if (!Object.keys(result).includes('state')) {
+                result['state'] = "moderating";
+            }
+            if (!Object.keys(result).includes("createdAt")) {
+                result["createdAt"] = Date.now();
+            }
+            return result;
+
+
+//   if (args.length <= 1) {
+//     return { "name": "Hexlet", "createdAt": Date.now(), "state": "moderating", };
+//   } 
+//     return { "name": "Hexlet", "createdAt": Date.now(), ...args[1]};
+    
+  }
+    </script>
+</body>
+</html>
